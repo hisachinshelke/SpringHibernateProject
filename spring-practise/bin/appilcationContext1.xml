@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+
+
+	<!-- Define your beans here -->
+	<bean id="myFortuneService"
+		class="com.springpractise.HappyFortuneService">
+	</bean>
+		
+	<bean id="myTrackService"
+		  class="com.springpractise.HappyTrackService">
+    </bean>	
+		  
+	<bean id="myTennisSevice"
+	class="com.springpractise.HappyTennisService">
+	</bean>	  
+
+	<bean id="myCoach" class="com.springpractise.BasketballCoach">
+		<constructor-arg ref="myFortuneService" />
+	</bean>
+
+	<bean id="myTrackCoach" class="com.springpractise.TrackCoach">
+		<constructor-arg ref="myTrackService" />
+	</bean>
+	
+	<bean id="myTennisCoach"
+		  class="com.springpractise.TennisCoach">
+		  <property name="tennisFortune" ref="myTennisSevice" />
+    </bean>
+
+</beans>
+
+
+
+
+
